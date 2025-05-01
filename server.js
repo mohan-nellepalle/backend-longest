@@ -1,8 +1,8 @@
 import express from "express";
-import connectDB from "./config/db.js";  // Changed from { connectDB }
+import connectDB from "./config/db.js"; // Changed from { connectDB }
 import cors from "cors";
-import swaggerUi from 'swagger-ui-express';
-import swaggerSpecs from './config/swagger.js';
+import swaggerUi from "swagger-ui-express";
+import swaggerSpecs from "./config/swagger.js";
 // import { connectDB } from "./config/db.js";
 // Import routes
 import notificationRoutes from "./routes/notificationRoutes.js";
@@ -18,7 +18,7 @@ const app = express();
 connectDB();
 
 // Swagger UI
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
 
 // Middleware
 app.use(cors());
@@ -36,6 +36,6 @@ app.use("/api/auth", authRoutes);
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`Server is running on port ${PORT}`);
+// });
